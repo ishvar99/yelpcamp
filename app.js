@@ -9,7 +9,6 @@ var express                  =require("express"),
     flash                    =require("connect-flash"),
     User                     =require("./model/user.js"),
     methodOverride           =require("method-override");
-
 var commentRoutes            =require("./routes/comments.js"),
     campgroundsRoutes        =require("./routes/campgrounds.js"),
     indexRoutes              =require("./routes/index.js");
@@ -41,17 +40,7 @@ next();
 app.use("/campgrounds/:id",commentRoutes);
 app.use("/campgrounds",campgroundsRoutes);
 app.use(indexRoutes);
-// Campground.create({
-//    name:"Devon,England",
-//    image:"address.jpg",
-//    description:"It is one of the most beautiful campgrounds"},
-//    function(err, campground) {
-//    if(err){
-//       console.log("Something went wrong!!");
-//    }
-// });
 app.set("view engine","ejs");
-//seed();
-app.listen("3000","127.0.0.1",function() {
+app.listen(process.env.PORT,process.env.IP,function() {
 	console.log(" The YelpCamp Server has started!");
 });
