@@ -6,7 +6,6 @@ var express                  =require("express"),
     localStrategy            =require("passport-local"),
     bodyParser               =require("body-parser"),
     mongoose                 =require("mongoose"),
-    seed                     =require("./seed.js"),
     flash                    =require("connect-flash"),
     User                     =require("./model/user.js"),
     methodOverride           =require("method-override");
