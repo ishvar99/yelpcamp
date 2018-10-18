@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs%>
+<h1 class="profile_heading display-1"><strong><em>USER PROFILE</em></strong></h1>
+<div class="frame">
+<h3><strong>Name: </strong><%=currentUser.firstName%> <%=currentUser.lastName%></h3>
+<br>
+<h3><strong>Date Of Birth: </strong><%=currentUser.date%></h3>
+<br>
+<h3><strong>Email-Id: </strong><%=currentUser.email%></h3>
+<br>
+<h3><strong>Nationality: </strong><%=currentUser.nationality%></h3>
+</div>
+<% include ../partials/footer.ejs%>

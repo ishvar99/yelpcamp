@@ -1,0 +1,43 @@
+.form{
+	margin: 0 auto;
+	width: 40%;
+}
+.img-spacing{
+	padding-bottom: 2rem;
+}
+.jumbotron-heading{
+	font-size: 4rem;
+}
+.jumbotron-text{
+    font-size: 2rem;
+}
+body{
+	margin-top: 5rem;
+	padding-bottom: 5rem;
+}
+.style{
+	text-align: center;
+	padding-bottom: 3.0rem;
+}
+.profile_heading{
+     text-align: center;
+     color: blue;
+     font-size: 3.0rem;
+     padding-bottom: 50px;
+}
+.frame{
+	padding-top: 20px;
+	margin: 0 auto; 
+	width: 50%;
+	padding: 50px 0 50px 50px;
+	border: 1px solid red;
+}
+.display-inline{
+display: inline;
+}
+.btn-xs{
+	padding: .30rem .4rem;
+	font-size: .800rem;
+	line-height: .5;
+	border-radius: .2rem;
+}

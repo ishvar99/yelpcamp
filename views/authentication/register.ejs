@@ -1,0 +1,25 @@
+<%include ../partials/header.ejs%>
+<div class="container">       
+<h1 class="style">Sign Up</h1>
+<form action="/register" method="post">
+		<div class="form">
+			<div class="row">
+			<div class="form-group col-md-6"><input class="form-control "type="text" name="firstName" placeholder="First Name" required="true"></div>
+			<div class="form-group col-md-6"><input class="form-control "type="text" name="lastName" placeholder="Last Name" required="true"></div>
+			</div>
+		<div class="form-group"><input class="form-control "type="text" name="username" placeholder="Username" required="true"></div>
+	<div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" required="true" id="password"></div>
+	<div class="form-group"><input class="form-control" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required="true"></div>
+	<div class="form-group"><input class="form-control" type="email" name="email" placeholder="E-mail" required="true"></div>
+	<div class="form-group"><input class="form-control" type="date" name="date" placeholder="Date Of Birth" required="true"></div>
+	<div class="form-group"><input class="form-control" type="text" name="nationality" placeholder="Nationality" required="true"></div>
+	<div class="form-group"><button class="btn-lg btn btn-primary btn-block">Submit</button></div>
+	<!-- <a href="/">Go back</a> -->
+	<span>
+		Have an account?
+	<a href="/login">Log in</a>
+	</span>
+	</div>
+</form>
+</div>
+<%include ../partials/footer.ejs%>
