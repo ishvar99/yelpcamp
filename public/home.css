@@ -42,7 +42,7 @@ body{
   top: 0;
   left: 0;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
   z-index: 0;
@@ -64,7 +64,7 @@ body{
      animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-	 background-image: url(http://i.imgur.com/K3mPv14.jpg)
+	 background-image: url(http://i.imgur.com/K3mPv14.jpg);
   animation-delay: 40s; 
 }
 @keyframes imageAnimation { 
