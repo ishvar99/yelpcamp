@@ -2,6 +2,10 @@
 	margin: 0 auto;
 	width: 40%;
 }
+.responsive{
+	max-width:420px;
+	width:85%;
+}
 .img-spacing{
 	padding-bottom: 2rem;
 }

@@ -2,7 +2,7 @@
 <div class="container">
 <h1 class="style">Edit the <%=campground.name%></h1>
 <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post">
-	<div class="form">
+	<div class="form responsive">
 		<div class="form-group"><input class="form-control "type="text" name="name" value="<%=campground.name%>" required></div>
 	<div class="form-group"><input class="form-control" type="text" name="image" value="<%= campground.image%>" required></div>
 	<div class="form-group"><textarea rows="7" cols="5" class="form-control" name="description"required><%= campground.description%></textarea></div>
