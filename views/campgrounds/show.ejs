@@ -13,8 +13,8 @@
 			<div class="card">
   <img class="card-img-top" src="<%=campground.image%>" alt="Error" style="padding: 3%;">
   <div class="card-body" >
-      <h4 class="float-right" style="font-size:2em;">9.99$</h4>
-  	<h4 class="card-title" class="display-inline"><a href="#" style="font-size: 1.5em;"><strong style="color: blue;"><%=campground.name%></a></h4></strong>
+      <!-- <h4 class="float-right" style="font-size:2em;">9.99$</h4> -->
+  	<h4 class="card-title" class="display-inline" style="text-align: center;"><a href="#" style="font-size: 1.5em;"><strong style="color: blue;"><%=campground.name%></a></h4></strong>
     <br>
       <p class="card-text" style="font-size: 1.5em;"><%=campground.description%></p>
       <br>
@@ -37,7 +37,23 @@
   	<div class="col-md-12">
       <strong style="font-size: 1.5em;color: blue"><%= comment.author.username%></strong>
   			<span class="float-right">
-          <strong style="font-size: 1.1em;color:gray"><i><%=comment.date.toUTCString()%></i></strong>
+          <%var d=comment.date%>
+          <%hours = d.getHours()%>
+          <%date=d.getDate()%>
+          <%month=d.getMonth()+1%>
+          <%year =d.getFullYear().toString().substr(-2)%>
+          <% minutes = d.getMinutes()%> 
+
+          <% if (minutes < 10) {%> 
+          <% minutes = "0" + minutes;}%> 
+          <% var suffix = "AM";%> 
+          <% if (hours >= 12) {%>
+          <%suffix = "PM"; %>
+          <%hours = hours - 12;} %>
+          <%if (hours == 0) { %>
+          <%hours = 12;} %>   
+                <strong style="font-size: 1.2em;color:gray"><i><%=hours+":"+minutes+" "+suffix%>
+                 &nbsp-&nbsp<%=date+"/"+month+"/"+year%></i></strong>
         </span>
             <p style="margin-bottom: 0.2rem;font-size: 1.3em;"><%=comment.text%></p>
             <% if(currentUser&&comment.author.id.equals(currentUser.id)) {%>
