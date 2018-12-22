@@ -8,6 +8,7 @@ var commentSchema=new mongoose.Schema({
 		},
 		username: String
 	},
-	date:{type:Date,default:new Date()}
+     // date:{type:Date,default:Date.now} not confuse with Date.now()
+    date:{type:Date,default: () => { return new Date() }}
 });
 module.exports=mongoose.model("comment",commentSchema);//name of the model is 'comment'
