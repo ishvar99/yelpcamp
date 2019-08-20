@@ -1,6 +1,7 @@
 var mongoose=require("mongoose");
 var CampgroundSchema=new mongoose.Schema({
 name:String,
+location:String,
 author:
 {
 	id:{

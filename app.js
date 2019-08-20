@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express                  =require("express"),
     app                      =express(),
     helmet                   =require("helmet"),
@@ -16,8 +17,9 @@ var commentRoutes            =require("./routes/comments.js"),
 
 // mongoose.connect("mongodb://localhost/yelp_camp",{useNewUrlParser: true});
 // mongoose.connect("mongodb://ishan:yelpcamp123@ds135433.mlab.com:35433/yalpcamp",{useNewUrlParser: true}); 
-mongoose.connect(process.env.DATABASEURL,{useNewUrlParser: true});
+mongoose.connect(process.env.DATABASEURL||"mongodb://localhost/yelp_camp",{useNewUrlParser: true});
 app.use(helmet());//for security purpose
+app.locals.CDN = "https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js";
 app.use(express.static(__dirname+"/public"));
 app.use(session({
   secret:"Anything",
@@ -44,6 +46,6 @@ app.use("/campgrounds/:id",commentRoutes);
 app.use("/campgrounds",campgroundsRoutes);
 app.use(indexRoutes);
 app.set("view engine","ejs");
-app.listen(process.env.PORT,process.env.IP,function() {
+app.listen(process.env.PORT||"3000",process.env.IP,function() {
 	console.log(" The YelpCamp Server has started!");
 });

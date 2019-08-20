@@ -48,3 +48,25 @@ display: inline;
 	line-height: .5;
 	border-radius: .2rem;
 }
+#map{
+	padding-top: 30px;
+	box-sizing: border-box;
+	height:400px;
+}
+.icn{
+ background-color: white; 
+  border: none;
+  color: black; 
+  font-size: 30px; 
+  cursor: pointer; 
+  float:right;
+}
+#remove{
+	padding-left: 40px;
+}
+#remove:hover{
+	color:red;
+}
+#edit:hover{
+	color:DodgerBlue; 
+}

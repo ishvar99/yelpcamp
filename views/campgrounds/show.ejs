@@ -1,4 +1,5 @@
 <%include ../partials/header.ejs%>
+
 <div class="container">
 	<div class="row"> 
 		<div class="col-md-3">
@@ -7,23 +8,27 @@
   <li class="list-group-item active">Info 1</li>
   <li class="list-group-item">Info 2</li>
   <li class="list-group-item">Info 3</li>
+  <div id="map">
+    
+  </div>
 </ul>
 		</div>
+    <div id="map"></div>
 		<div class="col-md-9">
 			<div class="card">
   <img class="card-img-top" src="<%=campground.image%>" alt="Error" style="padding: 3%;">
   <div class="card-body" >
       <!-- <h4 class="float-right" style="font-size:2em;">9.99$</h4> -->
-  	<h4 class="card-title" class="display-inline" style="text-align: center;"><a href="#" style="font-size: 1.5em;"><strong style="color: blue;"><%=campground.name%></a></h4></strong>
+  	<h4 class="card-title" class="display-inline" style="text-align: center;"><a href="#" style="font-size: 1.5em;"><strong style="color: Royalblue;"><%=campground.name%></a></h4></strong>
     <br>
       <p class="card-text" style="font-size: 1.5em;"><%=campground.description%></p>
       <br>
-    <p style="font-size: 1.3em;"><em>Submitted By: <strong style="color: blue;"><%= campground.author.username%></strong></em></p>
+    <p style="font-size: 1.3em;"><em>Submitted By: <strong style="color: Royalblue;"><%= campground.author.username%></strong></em></p>
     <% if(currentUser && currentUser._id.equals(campground.author.id)){ %>
-    <a class ="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id%>/edit">EDIT</a>   
     <form class="display-inline" method="POST" action="/campgrounds/<%= campground._id%>?_method=DELETE">
-      <button class="btn btn-sm btn-danger">DELETE</button>
+      <button class="icn" id="remove"><i class="fas fa-trash"></i></button>
     </form>
+    <a class="icn" id="edit" href="/campgrounds/<%= campground._id%>/edit"><i class="fas fa-edit"></i></a>   
     <% }%>
   </div>
 		</div>
@@ -60,6 +65,7 @@
                <a class ="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id%>/comments/<%=comment._id%>/edit">EDIT</a>   
     <form class="display-inline" method="POST" action="/campgrounds/<%= campground._id%>/comments/<%=comment._id%>?_method=DELETE">
       <button class="btn btn-xs btn-danger">DELETE</button>
+      
     </form>
      <br>
     <%}%>
@@ -71,4 +77,24 @@
   </div>
 </div>
 </div>
+<script type="text/javascript">
+  mapboxgl.accessToken = '<%=key%>';    
+  var client = new MapboxClient(mapboxgl.accessToken);
+    var test = client.geocodeForward('<%=campground.location%>', function(err,data,res) {
+      if(err){
+        console.log(err);
+        return
+      }
+      var coordinates =data.features[0].center;
+  var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+    center:coordinates, // starting position [lng, lat]
+    zoom: 14 // starting zoom
+})
+ new mapboxgl.Marker({color:'red'})
+        .setLngLat(coordinates)
+        .addTo(map);
+      });
+</script>
 <%include ../partials/footer.ejs%>
